@@ -33,7 +33,7 @@ export default function FeatureHeroSec() {
             className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#e0edff] border border-blue-200/70 mb-6"
           >
             <Sparkles className="w-3.5 h-3.5 text-[#007bff]" />
-            <span className="text-[11px] sm:text-xs font-extrabold tracking-wider uppercase text-[#0f172a]">
+            <span className="text-[11px] sm:text-xs font-bold tracking-wider uppercase text-[#0f172a]">
               FEATURED
             </span>
           </motion.div>
@@ -45,7 +45,7 @@ export default function FeatureHeroSec() {
               viewBox="0 0 42 42"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="w-7 h-7 sm:w-9 sm:h-9 absolute -top-5 -right-5 sm:-top-2 sm:-right-6 text-[#facc15]"
+              className="w-7 h-7 sm:w-9 sm:h-9 absolute -top-5 -right-5 sm:-top-2 sm:right-20 text-[#facc15]"
             >
               <path
                 d="M8 22L16 6"
@@ -79,7 +79,7 @@ export default function FeatureHeroSec() {
                   viewBox="0 0 260 18"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="w-3/4 h-3 sm:h-3.5 absolute -bottom-3 left-0 text-[#facc15]"
+                  className="w-1/4 h-3 sm:h-3.5 absolute -bottom-3 left-0 sm:left-70 text-[#facc15]"
                   preserveAspectRatio="none"
                 >
                   <motion.path
@@ -97,12 +97,12 @@ export default function FeatureHeroSec() {
           </div>
 
           {/* Subtitle Description */}
-          <p className="mt-6 text-slate-500 text-xs sm:text-sm leading-relaxed max-w-lg font-medium">
+          <p className="mt-4 text-slate-500 text-xs sm:text-sm leading-relaxed max-w-lg font-medium">
             A powerful set of tools for students and teachers to teach, learn, collaborate and grow — all in one AI-powered platform.
           </p>
 
           {/* CTA Buttons Row */}
-          <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4">
+          <div className="mt-6 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4">
             {/* Primary Button: Get Started Today */}
             <motion.button
               whileHover={{ scale: 1.03 }}

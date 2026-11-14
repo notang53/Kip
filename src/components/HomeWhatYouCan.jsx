@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
   LayoutGrid,
@@ -8,6 +8,8 @@ import {
   CalendarDays,
   BookOpenCheck,
   Presentation,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 
 const features = [
@@ -82,6 +84,8 @@ const cardVariants = {
 };
 
 export default function FeaturesSection() {
+  const [activeFeature, setActiveFeature] = useState(0);
+
   return (
     <section
       id="features"
@@ -125,7 +129,7 @@ export default function FeaturesSection() {
           viewport={{ once: true, amount: 0.15 }}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7 w-full"
         >
-          {features.map((item) => {
+          {features.map((item, index) => {
             const Icon = item.icon;
             const isBlue = item.theme === "blue";
 
@@ -134,7 +138,7 @@ export default function FeaturesSection() {
                 key={item.id}
                 variants={cardVariants}
                 whileHover={{ y: -8, transition: { duration: 0.25 } }}
-                className={`relative overflow-hidden group rounded-3xl p-3 sm:p-5 text-center flex flex-col items-center border transition-shadow duration-300 cursor-pointer ${
+                className={`${activeFeature === index ? "" : "hidden"} sm:flex relative overflow-hidden group rounded-3xl p-3 sm:p-5 text-center flex flex-col items-center border transition-shadow duration-300 cursor-pointer ${
                   isBlue
                     ? "bg-[#f2f7ff] border-blue-100/90 hover:shadow-xl hover:shadow-blue-500/10"
                     : "bg-[#fdf9ee] border-amber-100/90 hover:shadow-xl hover:shadow-amber-500/10"
@@ -182,6 +186,30 @@ export default function FeaturesSection() {
             );
           })}
         </motion.div>
+
+        <div className="mt-5 flex items-center justify-center gap-5 sm:hidden">
+          <button
+            type="button"
+            onClick={() => setActiveFeature((feature) => Math.max(feature - 1, 0))}
+            disabled={activeFeature === 0}
+            aria-label="Previous feature"
+            className="w-10 h-10 rounded-full border border-blue-200 bg-white text-[#007bff] flex items-center justify-center shadow-sm transition-colors hover:bg-blue-50 disabled:opacity-40 disabled:cursor-not-allowed"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <span className="text-sm font-semibold text-slate-600" aria-live="polite">
+            {activeFeature + 1} of {features.length}
+          </span>
+          <button
+            type="button"
+            onClick={() => setActiveFeature((feature) => Math.min(feature + 1, features.length - 1))}
+            disabled={activeFeature === features.length - 1}
+            aria-label="Next feature"
+            className="w-10 h-10 rounded-full border border-blue-200 bg-white text-[#007bff] flex items-center justify-center shadow-sm transition-colors hover:bg-blue-50 disabled:opacity-40 disabled:cursor-not-allowed"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        </div>
       </div>
     </section>
   );

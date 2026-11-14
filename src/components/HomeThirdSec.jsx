@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Sparkles, ArrowRight } from "lucide-react";
+import { Sparkles, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
 // Top banner background image yahan import karein
 import howItWorksBg from "../assets/images/3-sec-top.png";
@@ -32,6 +32,8 @@ const steps = [
 ];
 
 export default function HowItWorksSection() {
+  const [activeStep, setActiveStep] = useState(0);
+
   return (
     <section>
 
@@ -99,7 +101,7 @@ export default function HowItWorksSection() {
         </div>
 
         {/* 3 Cards Grid Container */}
-        <div className="grid grid-cols-1 min-[600px]:grid-cols-3 max-w-4xl gap-4 sm:gap-5 lg:gap-8 w-full relative">
+        <div className="grid grid-cols-1 md:grid-cols-3 max-w-4xl gap-4 sm:gap-5 lg:gap-8 w-full relative">
           
           {steps.map((step, index) => (
             <motion.div
@@ -109,7 +111,7 @@ export default function HowItWorksSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.2, ease: "easeOut" }}
               whileHover={{ y: -10, transition: { duration: 0.2 } }}
-              className="bg-white rounded-3xl shadow-xl shadow-blue-500/5 border border-blue-100/80 p-5 flex flex-col items-stretch text-left min-h-[205px] relative group"
+              className={`${activeStep === index ? "" : "hidden"} md:flex bg-white rounded-3xl border border-blue-100/80 p-5 flex flex-col items-stretch text-left min-h-[205px] relative group`}
             >
               {/* Card Illustration / Image */}
               <div className="w-full h-[100px] flex items-center justify-start mb-2 relative overflow-hidden rounded-2xl">
@@ -118,7 +120,7 @@ export default function HowItWorksSection() {
                   transition={{ duration: 0.3 }}
                   src={step.image}
                   alt={step.title}
-                  className="w-[110px] h-full object-contain drop-shadow-md"
+                  className="w-[110px] h-full object-contain"
                 />
               </div>
 
@@ -145,7 +147,7 @@ export default function HowItWorksSection() {
 
               {/* Connecting Dotted Curved Arrow (Desktop only - between card 1->2 and 2->3) */}
               {index < 2 && (
-                <div className="hidden min-[600px]:block absolute -right-4 sm:-right-5 lg:-right-6 top-1/3 z-20 pointer-events-none translate-x-1/2">
+                <div className="hidden md:block absolute -right-4 sm:-right-5 lg:-right-6 top-1/3 z-20 pointer-events-none translate-x-1/2">
                   <svg
                     width="48"
                     height="24"
@@ -174,6 +176,30 @@ export default function HowItWorksSection() {
             </motion.div>
           ))}
 
+        </div>
+
+        <div className="mt-5 flex items-center justify-center gap-5 md:hidden">
+          <button
+            type="button"
+            onClick={() => setActiveStep((step) => Math.max(step - 1, 0))}
+            disabled={activeStep === 0}
+            aria-label="Previous step"
+            className="w-10 h-10 rounded-full border border-blue-200 bg-white text-[#007bff] flex items-center justify-center shadow-sm transition-colors hover:bg-blue-50 disabled:opacity-40 disabled:cursor-not-allowed"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <span className="text-sm font-semibold text-slate-600" aria-live="polite">
+            Step {activeStep + 1} of {steps.length}
+          </span>
+          <button
+            type="button"
+            onClick={() => setActiveStep((step) => Math.min(step + 1, steps.length - 1))}
+            disabled={activeStep === steps.length - 1}
+            aria-label="Next step"
+            className="w-10 h-10 rounded-full border border-blue-200 bg-white text-[#007bff] flex items-center justify-center shadow-sm transition-colors hover:bg-blue-50 disabled:opacity-40 disabled:cursor-not-allowed"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
         </div>
 
       </div>

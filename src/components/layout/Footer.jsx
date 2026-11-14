@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { 
   Mail, 
   Send, 
@@ -18,6 +19,8 @@ import Logo from "../../assets/images/f-logo.png";
 export default function Footer() {
   const [email, setEmail] = useState("");
 
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+
   const handleSubmit = (e) => {
     e.preventDefault();
     alert(`Subscribed successfully with: ${email}`);
@@ -25,7 +28,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative w-full text-white pt-40 pb-6 overflow-hidden">
+    <footer className="relative w-full text-white pt-10 sm:pt-26 pb-6 overflow-hidden">
       
       {/* Top Wave/Curve Background Image */}
       <div
@@ -38,7 +41,7 @@ export default function Footer() {
       {/* Main Footer Content Container */}
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-10 relative z-10">
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-16 border-b border-blue-900/60">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-10 lg:gap-8 border-b border-blue-900/60">
           
           {/* Column 1: Brand Info & Socials (Col span 4) */}
           <motion.div
@@ -49,9 +52,9 @@ export default function Footer() {
             className="lg:col-span-4 flex flex-col items-start"
           >
             {/* Imported Logo */}
-            <div className="mb-2 p-2 ">
+            <Link to="/" onClick={scrollToTop} aria-label="KIPClassin home" className="mb-2 p-2">
               <img src={Logo} alt="KIPClassin Logo" className="h-10 w-auto" />
-            </div>
+            </Link>
 
             <p className="text-slate-300 text-xs sm:text-sm leading-relaxed max-w-sm mb-6 font-medium">
               A modern online learning platform that helps students and teachers connect, teach and learn together.
@@ -86,14 +89,21 @@ export default function Footer() {
               Quick Links
             </h4>
             <ul className="space-y-2.5">
-              {["Home", "About", "Features", "How It Works", "Contact"].map((item, idx) => (
-                <li key={idx}>
-                  <a
-                    href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
+              {[
+                { label: "Home", href: "/" },
+                { label: "About", href: "/about" },
+                { label: "Features", href: "/feature" },
+                { label: "How It Works", href: "/HowItWork" },
+                { label: "Contact", href: "/contact" },
+              ].map((item) => (
+                <li key={item.href}>
+                  <Link
+                    to={item.href}
+                    onClick={scrollToTop}
                     className="text-slate-300 hover:text-[#007bff] text-sm font-medium transition-colors duration-200 inline-block hover:translate-x-1 transform transition-transform"
                   >
-                    {item}
-                  </a>
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -116,18 +126,19 @@ export default function Footer() {
                 { label: "Student Login", icon: GraduationCap, href: "#student-login" },
                 { label: "Teacher Login", icon: UserCheck, href: "#teacher-login" },
                 { label: "Create an Account", icon: UserPlus, href: "#register" },
-                { label: "Help & Support", icon: HelpCircle, href: "#support" },
+                { label: "Help & Support", icon: HelpCircle, href: "/contact" },
               ].map((link, idx) => {
                 const Icon = link.icon;
                 return (
                   <li key={idx}>
-                    <a
-                      href={link.href}
+                    <Link
+                      to={link.href}
+                      onClick={link.href.startsWith("/") ? scrollToTop : undefined}
                       className="group flex items-center gap-2.5 text-slate-300 hover:text-[#ffbc00] text-sm font-medium transition-colors duration-200"
                     >
                       <Icon className="w-4 h-4 text-[#ffbc00] group-hover:scale-110 transition-transform" />
                       <span>{link.label}</span>
-                    </a>
+                    </Link>
                   </li>
                 );
               })}

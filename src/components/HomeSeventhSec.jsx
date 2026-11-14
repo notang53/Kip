@@ -97,7 +97,7 @@ export default function TrustedStatsSection() {
           className="relative w-full bg-repeat bg-cover bg-center px-6 py-8 sm:px-10 sm:py-10 "
         >
           {/* 4 Columns Grid with Vertical Dividers */}
-          <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 items-center">
+          <div className="relative z-10 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 items-center">
             {trustedItems.map((item, index) => {
               const Icon = item.icon;
               return (

@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Sparkles, ArrowRight } from "lucide-react";
+import { Sparkles, ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
 // Yahan apni teeno cards ki images import karein
 import aiCardImg from "../assets/images/learning-1.png";
@@ -29,6 +29,8 @@ const features = [
 ];
 
 export default function PowerfulLearningSection() {
+  const [activeFeature, setActiveFeature] = useState(0);
+
   return (
     <section className="relative w-full py-10 lg:py-18 px-4 sm:px-6 lg:px-10 bg-gradient-to-b from-white via-[#f7faff] to-[#edf5ff] overflow-hidden">
       
@@ -95,7 +97,7 @@ export default function PowerfulLearningSection() {
         </div>
 
         {/* 3 Cards Grid Container */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10 max-w-5xl">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10 max-w-5xl w-full">
           
           {features.map((item, index) => (
             <motion.div
@@ -105,7 +107,7 @@ export default function PowerfulLearningSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.15, ease: "easeOut" }}
               whileHover={{ y: -10, transition: { duration: 0.2 } }}
-              className="bg-white rounded-2xl p-3 shadow-xl border border-blue-100/80 flex flex-col justify-between relative group cursor-pointer"
+              className={`${activeFeature === index ? "" : "hidden"} md:flex bg-white rounded-2xl p-3 shadow-xl border border-blue-100/80 flex flex-col justify-between relative group cursor-pointer`}
             >
               <div>
                 {/* Card Illustration / Image */}
@@ -143,6 +145,34 @@ export default function PowerfulLearningSection() {
             </motion.div>
           ))}
 
+        </div>
+
+        <div className="mt-5 flex items-center justify-center gap-4 md:hidden">
+          <motion.button
+            type="button"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.92 }}
+            onClick={() => setActiveFeature((feature) => Math.max(feature - 1, 0))}
+            disabled={activeFeature === 0}
+            aria-label="Previous feature"
+            className="w-9 h-9 rounded-full border border-blue-200 bg-white text-[#007bff] flex items-center justify-center shadow-md shadow-blue-500/10 transition-colors hover:bg-blue-50 disabled:opacity-40 disabled:cursor-not-allowed"
+          >
+            <ChevronLeft className="w-4 h-4" />
+          </motion.button>
+          <span className="text-xs font-semibold text-slate-600" aria-live="polite">
+            {activeFeature + 1} / {features.length}
+          </span>
+          <motion.button
+            type="button"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.92 }}
+            onClick={() => setActiveFeature((feature) => Math.min(feature + 1, features.length - 1))}
+            disabled={activeFeature === features.length - 1}
+            aria-label="Next feature"
+            className="w-9 h-9 rounded-full border border-blue-200 bg-white text-[#007bff] flex items-center justify-center shadow-md shadow-blue-500/10 transition-colors hover:bg-blue-50 disabled:opacity-40 disabled:cursor-not-allowed"
+          >
+            <ChevronRight className="w-4 h-4" />
+          </motion.button>
         </div>
 
       </div>

@@ -62,11 +62,11 @@ export default function PortalSection() {
             className="bg-[#f0f6ff] rounded-3xl shadow-xl shadow-blue-500/5 border border-blue-100/80 flex flex-col sm:flex-row items-center gap-6 relative overflow-hidden group"
           >
             {/* Student Image */}
-            <div className="w-full sm:w-[220px] h-[320px] flex-shrink-0 relative overflow-hidden rounded-2xl bg-[#f0f6ff]">
+            <div className="w-full sm:w-[220px] h-[220px] flex-shrink-0 relative overflow-hidden rounded-2xl bg-[#f0f6ff]">
               <img
                 src={studentImg}
                 alt="Student Portal"
-                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover sm:object-center object-top  group-hover:scale-105 transition-transform duration-500"
               />
             </div>
 
@@ -77,7 +77,7 @@ export default function PortalSection() {
                 <GraduationCap className="w-6 h-6" />
               </div>
 
-              <h3 className="text-2xl font-extrabold text-[#0f172a]">
+              <h3 className="text-2xl font-bold text-[#0f172a]">
                 I'm a <span className="text-[#007bff]">Student</span>
               </h3>
 
@@ -117,11 +117,11 @@ export default function PortalSection() {
             className="bg-[#fffbeb] rounded-3xl  shadow-xl shadow-amber-500/5 border border-amber-100/80 flex flex-col sm:flex-row items-center gap-6 relative overflow-hidden group"
           >
             {/* Teacher Image */}
-            <div className="w-full sm:w-[220px] h-[320px] flex-shrink-0 relative overflow-hidden rounded-2xl bg-[#fffbeb]">
+            <div className="w-full sm:w-[220px] h-[220px] flex-shrink-0 relative overflow-hidden rounded-2xl bg-[#fffbeb]">
               <img
                 src={teacherImg}
                 alt="Teacher Portal"
-                className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                className="w-full h-full object-cover sm:object-center object-top group-hover:scale-105 transition-transform duration-500"
               />
             </div>
 
@@ -132,7 +132,7 @@ export default function PortalSection() {
                 <Presentation className="w-6 h-6 stroke-[2.2]" />
               </div>
 
-              <h3 className="text-2xl font-extrabold text-[#0f172a]">
+              <h3 className="text-2xl font-bold text-[#0f172a]">
                 I'm a <span className="text-[#ff9900]">Teacher</span>
               </h3>
 

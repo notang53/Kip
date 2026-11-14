@@ -20,10 +20,11 @@ const reachOutItems = [
   {
     id: 1,
     title: "Live Support",
-    subtitle: "Chat with our support team in real time.",
+    subtitle: "Send a message to our support team.",
     icon: Headphones,
     color: "text-amber-500",
     bg: "bg-amber-50",
+    href: "#contact-form",
   },
   {
     id: 2,
@@ -32,6 +33,7 @@ const reachOutItems = [
     icon: AtSign,
     color: "text-amber-500",
     bg: "bg-amber-50",
+    href: "mailto:support@kipclassin.com",
   },
   {
     id: 3,
@@ -40,6 +42,7 @@ const reachOutItems = [
     icon: PhoneCall,
     color: "text-amber-500",
     bg: "bg-amber-50",
+    href: "tel:+18001234567",
   },
   {
     id: 4,
@@ -48,6 +51,8 @@ const reachOutItems = [
     icon: MapPin,
     color: "text-amber-500",
     bg: "bg-amber-50",
+    href: "https://www.google.com/maps/search/?api=1&query=123+Learning+Ave%2C+Toronto%2C+ON%2C+Canada",
+    target: "_blank",
   },
 ];
 
@@ -81,7 +86,7 @@ export default function ContactFormSection() {
             </p>
 
             {/* Contact Form Fields */}
-            <form onSubmit={(e) => e.preventDefault()} className="space-y-2.5">
+            <form id="contact-form" onSubmit={(e) => e.preventDefault()} className="space-y-2.5">
               
               {/* Row 1: First Name & Last Name */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -188,8 +193,11 @@ export default function ContactFormSection() {
               {reachOutItems.map((item, idx) => {
                 const Icon = item.icon;
                 return (
-                  <motion.div
+                  <motion.a
                     key={item.id}
+                    href={item.href}
+                    target={item.target}
+                    rel={item.target === "_blank" ? "noreferrer" : undefined}
                     initial={{ opacity: 0, y: 15 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
@@ -216,7 +224,7 @@ export default function ContactFormSection() {
                     <div className="w-6 h-6 rounded-full bg-blue-100/70 text-[#007bff] flex items-center justify-center flex-shrink-0 group-hover:bg-[#007bff] group-hover:text-white transition-colors">
                       <ChevronRight className="w-3.5 h-3.5 stroke-[2.5]" />
                     </div>
-                  </motion.div>
+                  </motion.a>
                 );
               })}
             </div>
@@ -231,7 +239,7 @@ export default function ContactFormSection() {
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-          className="relative w-full h-30 rounded-2xl bg-gradient-to-r from-[#f3f8ff] to-[#eaf4ff] border border-blue-100/90 p-5 sm:p-6 lg:px-8 shadow-lg shadow-blue-500/5 flex flex-col lg:flex-row items-center justify-between gap-5"
+          className="relative w-full h-30 rounded-2xl bg-gradient-to-r from-[#f3f8ff] to-[#f3f8ff]/20 border border-blue-100/20 p-5 sm:p-6 lg:px-8 shadow-lg shadow-blue-500/5 flex flex-col lg:flex-row items-center justify-between gap-5"
         >
           {/* Left Content */}
           <div className="flex flex-col items-start max-w-lg">
@@ -247,7 +255,10 @@ export default function ContactFormSection() {
               Want to see KIPClassin in action? Schedule a free demo with our team.
             </p>
 
-            <motion.button
+           
+          </div>
+
+           <motion.button
               whileHover={{ scale: 1.04 }}
               whileTap={{ scale: 0.96 }}
               className="relative group inline-flex items-center gap-2 bg-gradient-to-r from-[#008dff] to-[#007bff] hover:from-[#007bff] hover:to-[#0056d2] text-white font-bold text-[11px] px-4 py-2 rounded-full shadow-md shadow-blue-500/20 cursor-pointer transition-colors"
@@ -255,7 +266,6 @@ export default function ContactFormSection() {
               <span className="relative z-10">Schedule a Demo</span>
               <ArrowRight className="w-3 h-3 relative z-10 transition-transform duration-300 group-hover:translate-x-1" />
             </motion.button>
-          </div>
 
           {/* Right Side Illustration Image */}
           <motion.div

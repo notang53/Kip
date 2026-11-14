@@ -121,11 +121,11 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.28, ease: "easeInOut" }}
-            className="lg:hidden overflow-hidden bg-white/95 backdrop-blur-lg border-t border-slate-200/70 shadow-lg"
+            initial={{ x: "100%", opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: "100%", opacity: 0 }}
+            transition={{ duration: 0.35, ease: "easeInOut" }}
+            className="lg:hidden fixed top-20 right-0 bottom-0 w-full sm:w-[360px] overflow-y-auto bg-white/95 backdrop-blur-lg border-l border-slate-200/70 shadow-2xl"
           >
             <div className="px-4 sm:px-6 py-4 flex flex-col gap-2">
               {navLinks.map((link, index) => {
@@ -133,7 +133,7 @@ export default function Navbar() {
                 return (
                   <motion.div
                     key={link.id}
-                    initial={{ x: -16, opacity: 0 }}
+                    initial={{ x: 16, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ delay: index * 0.05 }}
                   >
@@ -157,7 +157,7 @@ export default function Navbar() {
 
               {/* Login Button added inside Mobile Menu Drawer */}
               <motion.div
-                initial={{ x: -16, opacity: 0 }}
+                initial={{ x: 16, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ delay: navLinks.length * 0.05 }}
                 className="pt-2 mt-1 border-t border-slate-100"

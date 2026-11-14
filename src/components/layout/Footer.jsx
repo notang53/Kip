@@ -13,7 +13,7 @@ import { FaFacebookF, FaInstagram, FaXTwitter, FaLinkedinIn } from "react-icons/
 // Footer top wave background image yahan import karein
 import footerWaveBg from "../../assets/images/Footer-bg.png";
 // Brand Logo yahan import karein
-import Logo from "../../assets/images/logo.png";
+import Logo from "../../assets/images/f-logo.png";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
@@ -49,8 +49,8 @@ export default function Footer() {
             className="lg:col-span-4 flex flex-col items-start"
           >
             {/* Imported Logo */}
-            <div className="mb-4 bg-white/10 p-2 rounded-xl backdrop-blur-sm">
-              <img src={Logo} alt="KIPClassin Logo" className="h-10 w-auto brightness-0 invert" />
+            <div className="mb-2 p-2 ">
+              <img src={Logo} alt="KIPClassin Logo" className="h-10 w-auto" />
             </div>
 
             <p className="text-slate-300 text-xs sm:text-sm leading-relaxed max-w-sm mb-6 font-medium">

@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Zap, LayoutGrid, Users, ShieldCheck } from "lucide-react";
+import { Zap, LayoutGrid, Users, Shield, Check } from "lucide-react";
 
 const whyChooseData = [
   {
@@ -25,7 +25,7 @@ const whyChooseData = [
     id: 4,
     title: "Reliable & Secure",
     description: "A stable, secure and trusted learning platform.",
-    icon: ShieldCheck,
+    icon: Shield,
   },
 ];
 
@@ -53,7 +53,7 @@ export default function WhyChooseSection() {
   return (
     <section className="relative w-full py-10 lg:py-18 px-4 sm:px-6 lg:px-10 bg-white overflow-hidden">
    
-      <div className="max-w-[1400px] mx-auto flex flex-col items-center">
+      <div className="max-w-6xl mx-auto flex flex-col items-center">
         
         {/* Top Badge: WHY KIPCLASSIN */}
         <motion.div
@@ -99,7 +99,7 @@ export default function WhyChooseSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-7 w-full"
+          className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 w-full"
         >
           {whyChooseData.map((item) => {
             const Icon = item.icon;
@@ -109,30 +109,45 @@ export default function WhyChooseSection() {
                 key={item.id}
                 variants={cardVariants}
                 whileHover={{ y: -8, transition: { duration: 0.25 } }}
-                className="relative overflow-hidden group rounded-[25px] p-2 sm:p-4 bg-[#f2f7ff] border border-blue-100/90 shadow-lg shadow-blue-500/5 hover:shadow-xl hover:shadow-blue-500/10 text-center flex flex-col items-center cursor-pointer transition-all duration-300"
+                className="relative overflow-hidden group rounded-2xl p-3 sm:p-4 min-h-[150px] bg-[#f2f7ff] border border-blue-100/90 shadow-md shadow-blue-500/5 hover:border-blue-200 hover:shadow-lg hover:shadow-blue-500/10 text-center flex flex-col items-center transition-all duration-300"
               >
                 {/* Bottom-to-Top Hover Tint Layer */}
                 <span className="absolute inset-0 bg-[#e6f0ff]/80 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out pointer-events-none" />
 
                 {/* Bottom Accent Line on Hover */}
-                <span className="absolute bottom-0 left-0 right-0 h-1.5 bg-[#007bff] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center" />
+                <span className="absolute bottom-0 left-0 right-0 h-1 bg-[#007bff] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center" />
 
                 {/* Icon Badge */}
                 <motion.div
                   whileHover={{ scale: 1.15, rotate: [0, -8, 8, 0] }}
                   transition={{ duration: 0.35 }}
-                  className="relative z-10 w-12 h-12 flex items-center justify-center text-[#007bff] mb-6"
+                  className={`relative z-10 w-8 h-8 flex items-center justify-center mb-2.5 transition-transform duration-300 group-hover:scale-110 ${
+                    item.id === 1 ? "text-[#ffbc00]" : "text-[#007bff]"
+                  }`}
                 >
-                  <Icon className={`w-6 h-6 ${item.id === 1 ? "fill-[#ffbc00] text-[#ffbc00]" : "stroke-[2.2]"}`} />
+                  {item.id === 4 ? (
+                    <span className="relative flex items-center justify-center">
+                      <Icon className="w-5 h-5 fill-[#007bff] stroke-[#007bff]" />
+                      <Check className="absolute w-3 h-3 text-white stroke-[3]" />
+                    </span>
+                  ) : (
+                    <Icon
+                      className={`w-5 h-5 stroke-[2.2] ${
+                        item.id === 1
+                          ? "fill-[#ffbc00] stroke-[#f4a900]"
+                          : "fill-[#007bff] stroke-[#007bff]"
+                      }`}
+                    />
+                  )}
                 </motion.div>
 
                 {/* Card Title */}
-                <h3 className="relative z-10 text-lg sm:text-[19px] font-bold text-[#01287B] mb-2.5">
+                <h3 className="relative z-10 text-sm sm:text-[15px] font-bold text-[#01287B] group-hover:text-[#007bff] transition-colors duration-300 mb-1">
                   {item.title}
                 </h3>
 
                 {/* Card Description */}
-                <p className="relative z-10 text-slate-600 text-xs sm:text-[13.5px] leading-relaxed max-w-[240px] font-medium">
+                <p className="relative z-10 text-slate-600 text-[11px] leading-snug max-w-[240px] font-medium">
                   {item.description}
                 </p>
               </motion.div>

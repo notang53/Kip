@@ -7,8 +7,8 @@ import communityLaptopImg from "../assets/images/about-3-sec-img.png";
 
 export default function LearningCommunityBanner() {
   return (
-    <section className="relative w-full py-10 lg:py-10 px-4 sm:px-6 lg:px-10 bg-white overflow-hidden">
-      <div className="max-w-[1400px] mx-auto">
+    <section className="relative w-full py-10 lg:py-4 px-4 sm:px-6 lg:px-10 bg-white overflow-hidden">
+      <div className="max-w-6xl mx-auto">
         
         {/* Main Blue Gradient Banner Capsule Container */}
         <motion.div

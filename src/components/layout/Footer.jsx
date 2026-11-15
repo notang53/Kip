@@ -100,7 +100,7 @@ export default function Footer() {
                   <Link
                     to={item.href}
                     onClick={scrollToTop}
-                    className="text-slate-300 hover:text-[#007bff] text-sm font-medium transition-colors duration-200 inline-block hover:translate-x-1 transform transition-transform"
+                    className="inline-block text-slate-300 text-sm font-medium transition-all duration-300 ease-in-out hover:text-[#ffbc00] hover:-translate-x-2"
                   >
                     {item.label}
                   </Link>
@@ -134,7 +134,7 @@ export default function Footer() {
                     <Link
                       to={link.href}
                       onClick={link.href.startsWith("/") ? scrollToTop : undefined}
-                      className="group flex items-center gap-2.5 text-slate-300 hover:text-[#ffbc00] text-sm font-medium transition-colors duration-200"
+                      className="group flex items-center gap-2.5 text-slate-300 hover:text-[#ffbc00] text-sm font-medium transition-all duration-300 ease-in-out hover:-translate-x-2"
                     >
                       <Icon className="w-4 h-4 text-[#ffbc00] group-hover:scale-110 transition-transform" />
                       <span>{link.label}</span>
@@ -162,7 +162,7 @@ export default function Footer() {
                 <li key={idx}>
                   <a
                     href={`#${item.toLowerCase().replace(/\s+/g, '-')}`}
-                    className="text-slate-300 hover:text-[#007bff] text-sm font-medium transition-colors duration-200 inline-block hover:translate-x-1 transform transition-transform"
+                    className="inline-block text-slate-300 text-sm font-medium transition-all duration-300 ease-in-out hover:text-[#ffbc00] hover:-translate-x-2"
                   >
                     {item}
                   </a>
@@ -209,9 +209,9 @@ export default function Footer() {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400">
           <p>© 2026 KIPClassin. All rights reserved.</p>
           <div className="flex items-center gap-6 mt-4 sm:mt-0">
-            <a href="#privacy" className="hover:text-white transition-colors">Privacy</a>
-            <a href="#terms" className="hover:text-white transition-colors">Terms</a>
-            <a href="#security" className="hover:text-white transition-colors">Security</a>
+            <a href="#privacy" className="transition-all duration-300 ease-in-out hover:text-[#ffbc00] hover:-translate-x-2">Privacy</a>
+            <a href="#terms" className="transition-all duration-300 ease-in-out hover:text-[#ffbc00] hover:-translate-x-2">Terms</a>
+            <a href="#security" className="transition-all duration-300 ease-in-out hover:text-[#ffbc00] hover:-translate-x-2">Security</a>
           </div>
         </div>
 

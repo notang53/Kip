@@ -23,14 +23,14 @@ export default function LastOne() {
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
+          transition={{ duration: 0.9, ease: "easeOut" }}
           className="max-w-xl lg:max-w-[620px]"
         >
           {/* Top Logo */}
           <motion.div
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.1, duration: 0.4 }}
+            transition={{ delay: 0.1, duration: 0.6 }}
             className="mb-6"
           >
             <img src={Logo} alt="KIPClassin Logo" className="h-10 w-auto" />
@@ -43,7 +43,7 @@ export default function LastOne() {
               viewBox="0 0 42 42"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
-              className="w-7 h-7 sm:w-9 sm:h-9 absolute -top-5 right-10 sm:-top-6 sm:right-[-40px] text-[#facc15]"
+              className="w-7 h-7 sm:w-9 sm:h-9 absolute -top-5 right-10 sm:-top-5 sm:right-[40px] text-[#facc15]"
             >
               <path d="M8 22L16 6" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" />
               <path d="M17 27L31 14" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" />
@@ -66,7 +66,7 @@ export default function LastOne() {
                   <motion.path
                     initial={{ pathLength: 0 }}
                     animate={{ pathLength: 1 }}
-                    transition={{ delay: 0.45, duration: 0.7, ease: "easeOut" }}
+                    transition={{ delay: 0.45, duration: 0.9, ease: "easeOut" }}
                     d="M3 14C70 4 165 3 237 11"
                     stroke="currentColor"
                     strokeWidth="5"

@@ -16,7 +16,7 @@ export default function LearningCommunityBanner() {
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="relative w-full rounded-[25px] sm:rounded-[30px] bg-gradient-to-r from-[#0052cc] via-[#0065f2] to-[#1a7aff] text-white p-4 sm:p-6 lg:p-16 overflow-hidden shadow-2xl shadow-blue-500/20"
+          className="relative w-full rounded-[25px] sm:rounded-[30px] bg-gradient-to-r from-[#0052cc] via-[#0065f2] to-[#1a7aff] text-white p-6 sm:p-8 lg:p-16 overflow-hidden shadow-2xl shadow-blue-500/20"
         >
           <svg
             viewBox="0 0 140 70"
@@ -94,7 +94,7 @@ export default function LearningCommunityBanner() {
               initial={{ opacity: 0, x: 30, scale: 0.95 }}
               whileInView={{ opacity: 1, x: 0, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
+              transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" }}
               whileHover={{ scale: 1.02 }}
               className="lg:col-span-6 relative flex items-center justify-center mt-6 lg:mt-0"
             >

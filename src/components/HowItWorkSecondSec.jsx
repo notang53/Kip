@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { UserPlus, Monitor, Presentation, TrendingUp } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  UserPlus,
+  Monitor,
+  Presentation,
+  TrendingUp,
+} from "lucide-react";
 
 // Apni step cards ki images ya icons yahan customize kar sakte hain
 const stepsData = [
@@ -51,6 +58,8 @@ const cardVariants = {
 };
 
 export default function HowItWorksSecondSection() {
+  const [activeStep, setActiveStep] = useState(0);
+
   return (
     <section className="relative w-full py-10 lg:py-18 px-4 sm:px-6 lg:px-10 bg-white overflow-hidden">
       
@@ -64,7 +73,7 @@ export default function HowItWorksSecondSection() {
           initial={{ opacity: 0, y: -15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
+          transition={{ duration: 0.6 }}
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#e0edff] border border-blue-200/80 shadow-sm mb-5"
         >
           <span className="text-xs font-bold tracking-wider uppercase text-[#007bff]">
@@ -115,7 +124,7 @@ export default function HowItWorksSecondSection() {
           viewport={{ once: true, amount: 0.1 }}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-7 w-full"
         >
-          {stepsData.map((item) => {
+          {stepsData.map((item, index) => {
             const Icon = item.icon;
 
             return (
@@ -123,7 +132,9 @@ export default function HowItWorksSecondSection() {
                 key={item.step}
                 variants={cardVariants}
                 whileHover={{ y: -5, transition: { duration: 0.25 } }}
-                className="relative isolate overflow-hidden group rounded-2xl p-5 sm:p-6 min-h-[180px] bg-[#f2f7ff] border border-blue-100/90 shadow-md shadow-blue-500/5 hover:border-blue-200 hover:shadow-lg hover:shadow-blue-500/10 flex flex-col items-center text-center transition-all duration-300"
+                className={`relative isolate overflow-hidden group rounded-2xl p-5 sm:p-6 min-h-[180px] bg-[#f2f7ff] border border-blue-100/90 shadow-md shadow-blue-500/5 hover:border-blue-200 hover:shadow-lg hover:shadow-blue-500/10 flex flex-col items-center text-center transition-all duration-300 ${
+                  activeStep === index ? "flex" : "hidden"
+                } sm:flex`}
               >
                 {/* Bottom-to-Top Hover Tint Layer */}
                 <span className="absolute inset-0 z-0 bg-[#e6f0ff]/80 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out pointer-events-none" />
@@ -152,6 +163,30 @@ export default function HowItWorksSecondSection() {
             );
           })}
         </motion.div>
+
+        <div className="mt-4 flex items-center justify-center gap-3 sm:hidden">
+          <button
+            type="button"
+            onClick={() => setActiveStep((step) => Math.max(step - 1, 0))}
+            disabled={activeStep === 0}
+            aria-label="Previous step"
+            className="flex h-8 w-8 items-center justify-center rounded-full bg-[#007bff] text-white shadow-md shadow-blue-500/20 transition hover:bg-[#0056d2] disabled:cursor-not-allowed disabled:opacity-40"
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </button>
+          <span className="min-w-10 text-center text-xs font-semibold text-slate-600" aria-live="polite">
+            {activeStep + 1} / {stepsData.length}
+          </span>
+          <button
+            type="button"
+            onClick={() => setActiveStep((step) => Math.min(step + 1, stepsData.length - 1))}
+            disabled={activeStep === stepsData.length - 1}
+            aria-label="Next step"
+            className="flex h-8 w-8 items-center justify-center rounded-full bg-[#007bff] text-white shadow-md shadow-blue-500/20 transition hover:bg-[#0056d2] disabled:cursor-not-allowed disabled:opacity-40"
+          >
+            <ChevronRight className="h-4 w-4" />
+          </button>
+        </div>
 
       </div>
     </section>

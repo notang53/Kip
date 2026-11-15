@@ -70,7 +70,7 @@ export default function ContactFormSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="lg:col-span-6 bg-gradient-to-br from-[#f6faff] to-[#edf6ff] border border-blue-100/90 rounded-3xl p-5 sm:p-6 shadow-lg shadow-blue-500/5 relative overflow-hidden"
+            className="lg:col-span-6 bg-gradient-to-br from-[#f6faff] to-[#edf6ff] border border-blue-100/90 rounded-2xl p-5 sm:p-6 shadow-lg shadow-blue-500/5 relative overflow-hidden"
           >
             {/* Form Header */}
             <div className="flex items-center gap-2.5 mb-1">
@@ -201,7 +201,7 @@ export default function ContactFormSection() {
                     initial={{ opacity: 0, y: 15 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.15 + idx * 0.08, duration: 0.4 }}
+                    transition={{ delay: 0.15 + idx * 0.08, duration: 0.6 }}
                     whileHover={{ x: 6, backgroundColor: "#f2f7ff" }}
                     className="flex items-center justify-between p-3 rounded-xl bg-gradient-to-r from-[#f4f9ff] to-[#edf6ff] border border-blue-100/70 shadow-sm transition-all duration-300 cursor-pointer group"
                   >
@@ -239,7 +239,7 @@ export default function ContactFormSection() {
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-          className="relative w-full h-30 rounded-2xl bg-gradient-to-r from-[#f3f8ff] to-[#f3f8ff]/20 border border-blue-100/20 p-5 sm:p-6 lg:px-8 shadow-lg shadow-blue-500/5 flex flex-col lg:flex-row items-center justify-between gap-5"
+          className="relative w-full sm:h-30 h-full rounded-2xl bg-gradient-to-r from-[#f3f8ff] to-[#f3f8ff]/20 border border-blue-100/20 p-5 sm:p-6 lg:px-8 shadow-lg shadow-blue-500/5 flex flex-col lg:flex-row items-center justify-between gap-5"
         >
           {/* Left Content */}
           <div className="flex flex-col items-start max-w-lg">

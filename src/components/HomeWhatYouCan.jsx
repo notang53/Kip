@@ -100,7 +100,7 @@ export default function FeaturesSection() {
           initial={{ opacity: 0, y: -15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
+          transition={{ duration: 0.6 }}
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#e0edff] border border-blue-200/70 mb-5"
         >
           <LayoutGrid className="w-3.5 h-3.5 text-[#007bff]" />
@@ -161,7 +161,7 @@ export default function FeaturesSection() {
                 {/* Glossy Rounded-Square Icon Badge */}
                 <motion.div
                   whileHover={{ rotate: [0, -8, 8, 0], scale: 1.08 }}
-                  transition={{ duration: 0.4 }}
+                  transition={{ duration: 0.6 }}
                   className={`relative z-10 w-12 h-12 rounded-2xl flex items-center justify-center mb-6 shadow-lg transition-transform duration-300 group-hover:scale-110 ${
                     isBlue
                       ? "bg-gradient-to-b from-[#2b95ff] to-[#0056d2] text-white shadow-blue-500/30"

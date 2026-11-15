@@ -22,14 +22,14 @@ export default function ContactHeroSec() {
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
+          transition={{ duration: 0.9, ease: "easeOut" }}
           className="lg:col-span-5 sm:ms-10 max-w-xl lg:max-w-[440px]"
         >
           {/* Top Badge: CONTACT US */}
           <motion.div
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.1, duration: 0.4 }}
+            transition={{ delay: 0.1, duration: 0.6 }}
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#e0edff] border border-blue-200/70 mb-4"
           >
             <MessageSquareText className="w-3.5 h-3.5 text-[#007bff]" />
@@ -98,9 +98,9 @@ export default function ContactHeroSec() {
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+            transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
             whileHover={{ scale: 1.02 }}
-            className="absolute sm:-right-8 w-full max-w-[520px] lg:max-w-[630px]"
+            className="absolute sm:-right-8 w-2/3 max-w-[500px] lg:max-w-[630px]"
           >
             <img
               src={contactHeroImg}

@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { 
   Sparkles, 
   ArrowRight, 
+  ChevronLeft,
+  ChevronRight,
   Video, 
   Cpu, 
   Presentation, 
@@ -101,6 +103,8 @@ const cardVariants = {
 };
 
 export default function FeatureSecondSec() {
+  const [activeFeature, setActiveFeature] = useState(0);
+
   return (
     <section className="relative flex min-h-screen w-full items-center py-10 lg:py-12 px-4 sm:px-6 lg:px-10 bg-white overflow-hidden">
       
@@ -112,7 +116,7 @@ export default function FeatureSecondSec() {
           initial={{ opacity: 0, y: -15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
+          transition={{ duration: 0.6 }}
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#e0edff] border border-blue-200/80 shadow-sm mb-4"
         >
           <Sparkles className="w-3.5 h-3.5 text-[#007bff]" />
@@ -178,7 +182,7 @@ export default function FeatureSecondSec() {
                   isBlue
                     ? "bg-[#f2f7ff] border-blue-100/90 shadow-lg shadow-blue-500/5 hover:shadow-xl hover:shadow-blue-500/10"
                     : "bg-[#fdf9ee] border-amber-100/90 shadow-lg shadow-amber-500/5 hover:shadow-xl hover:shadow-amber-500/10"
-                }`}
+                } ${activeFeature === item.id - 1 ? "flex" : "hidden"} sm:flex`}
               >
                 {/* Bottom-to-Top Hover Tint Layer */}
                 <span
@@ -220,6 +224,30 @@ export default function FeatureSecondSec() {
             );
           })}
         </motion.div>
+
+        <div className="mt-4 flex items-center justify-center gap-3 sm:hidden">
+          <button
+            type="button"
+            onClick={() => setActiveFeature((feature) => Math.max(feature - 1, 0))}
+            disabled={activeFeature === 0}
+            aria-label="Previous feature"
+            className="flex h-8 w-8 items-center justify-center rounded-full bg-[#007bff] text-white shadow-md shadow-blue-500/20 transition hover:bg-[#0056d2] disabled:cursor-not-allowed disabled:opacity-40"
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </button>
+          <span className="min-w-10 text-center text-xs font-semibold text-slate-600" aria-live="polite">
+            {activeFeature + 1} / {suiteFeatures.length}
+          </span>
+          <button
+            type="button"
+            onClick={() => setActiveFeature((feature) => Math.min(feature + 1, suiteFeatures.length - 1))}
+            disabled={activeFeature === suiteFeatures.length - 1}
+            aria-label="Next feature"
+            className="flex h-8 w-8 items-center justify-center rounded-full bg-[#007bff] text-white shadow-md shadow-blue-500/20 transition hover:bg-[#0056d2] disabled:cursor-not-allowed disabled:opacity-40"
+          >
+            <ChevronRight className="h-4 w-4" />
+          </button>
+        </div>
 
       </div>
     </section>

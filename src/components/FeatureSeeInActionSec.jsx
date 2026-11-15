@@ -23,7 +23,7 @@ export default function SeeInActionSection() {
           whileInView={{ opacity: 1, y: 0, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="relative w-full rounded-[36px] sm:rounded-[30px] bg-gradient-to-b from-[#f5f9ff] to-[#edf5ff] border border-blue-100/90 p-2 sm:p-6 lg:p-6 overflow-hidden shadow-xl shadow-blue-500/5"
+          className="relative w-full rounded-[20px] sm:rounded-[30px] bg-gradient-to-b from-[#f5f9ff] to-[#edf5ff] border border-blue-100/90 p-6 sm:p-6 lg:p-6 overflow-hidden shadow-xl shadow-blue-500/5"
         >
           {/* Grid Layout: Left Content & Right Image */}
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
@@ -77,7 +77,7 @@ export default function SeeInActionSection() {
                     initial={{ opacity: 0, x: -15 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: 0.3 + idx * 0.1, duration: 0.4 }}
+                    transition={{ delay: 0.3 + idx * 0.1, duration: 0.6 }}
                     className="flex items-center gap-3 text-slate-700 text-sm sm:text-[15px] font-bold"
                   >
                     <span className="w-5 h-5 rounded-full bg-[#ffbc00] text-slate-900 flex items-center justify-center flex-shrink-0 shadow-xs">
@@ -106,7 +106,7 @@ export default function SeeInActionSection() {
               initial={{ opacity: 0, x: 30, scale: 0.95 }}
               whileInView={{ opacity: 1, x: 0, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
+              transition={{ duration: 0.9, delay: 0.3, ease: "easeOut" }}
               whileHover={{ scale: 1.02 }}
               className="lg:col-span-6 relative flex items-center justify-center mt-6 lg:mt-0"
             >

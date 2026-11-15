@@ -97,7 +97,7 @@ export default function OurValuesSection() {
           initial={{ opacity: 0, y: -15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
+          transition={{ duration: 0.6 }}
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#e0edff] border border-blue-200/80 shadow-sm mb-5"
         >
           <Star className="w-3.5 h-3.5 text-[#007bff] fill-[#007bff]" />
@@ -137,7 +137,7 @@ export default function OurValuesSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.1 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-7 w-full"
+          className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-7 w-full"
         >
           {valuesData.map((item) => {
             const isBlue = item.theme === "blue";
@@ -177,7 +177,7 @@ export default function OurValuesSection() {
                 </motion.div>
 
                 {/* Card Title */}
-                <h3 className="relative z-10 text-lg sm:text-[19px] font-bold text-[#01287B] mb-2.5">
+                <h3 className="relative z-10 text-sm sm:text-[18px] font-bold text-[#01287B] mb-2.5">
                   {item.title}
                 </h3>
 

@@ -104,7 +104,7 @@ export default function FaqSection() {
                 viewBox="0 0 42 42"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                className="w-7 h-7 sm:w-9 sm:h-9 absolute -top-5 right-6 sm:-top-6 sm:right-10 text-[#facc15]"
+                className="w-7 h-7 sm:w-9 sm:h-9 absolute -top-5 right-6 sm:-top-6 sm:right-55 text-[#facc15]"
               >
                 <path d="M8 22L16 6" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" />
                 <path d="M17 27L31 14" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" />
@@ -176,7 +176,7 @@ export default function FaqSection() {
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: index * 0.08, duration: 0.4 }}
+                  transition={{ delay: index * 0.08, duration: 0.6 }}
                   className={`rounded-xl sm:rounded-2xl border transition-all duration-300 overflow-hidden ${
                     isOpen
                       ? "bg-[#edf5ff] border-blue-300 shadow-lg shadow-blue-500/10"

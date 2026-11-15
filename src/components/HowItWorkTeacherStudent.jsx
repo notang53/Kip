@@ -69,7 +69,7 @@ export default function TeachersStudentsSection() {
                   viewBox="0 0 42 42"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="w-7 h-7 sm:w-8 sm:h-8 absolute -top-5 -right-7 sm:-top-6 sm:-right-9 text-[#facc15]"
+                  className="w-7 h-7 sm:w-8 sm:h-8 absolute -top-5 right-8 sm:-top-6 sm:-right-9 text-[#facc15]"
                 >
                   <path d="M8 22L16 6" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" />
                   <path d="M17 27L31 14" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" />
@@ -141,7 +141,7 @@ export default function TeachersStudentsSection() {
                   viewBox="0 0 42 42"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="w-7 h-7 sm:w-8 sm:h-8 absolute -top-5 -right-7 sm:-top-6 sm:-right-9 text-[#facc15]"
+                  className="w-7 h-7 sm:w-8 sm:h-8 absolute -top-5 right-8 sm:-top-6 sm:-right-9 text-[#facc15]"
                 >
                   <path d="M8 22L16 6" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" />
                   <path d="M17 27L31 14" stroke="currentColor" strokeWidth="3.5" strokeLinecap="round" />

@@ -20,7 +20,7 @@ export default function PortalSection() {
           initial={{ opacity: 0, y: -15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
+          transition={{ duration: 0.6 }}
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#e0edff] border border-blue-200/80 shadow-sm mb-6"
         >
           <Users className="w-4 h-4 text-[#007bff]" />
@@ -62,7 +62,7 @@ export default function PortalSection() {
             className="bg-[#f0f6ff] rounded-3xl shadow-xl shadow-blue-500/5 border border-blue-100/80 flex flex-col sm:flex-row items-center gap-6 relative overflow-hidden group"
           >
             {/* Student Image */}
-            <div className="w-full sm:w-[220px] h-[220px] flex-shrink-0 relative overflow-hidden rounded-2xl bg-[#f0f6ff]">
+            <div className="w-full sm:w-[220px] h-[285px] flex-shrink-0 relative overflow-hidden rounded-2xl bg-[#f0f6ff]">
               <img
                 src={studentImg}
                 alt="Student Portal"
@@ -117,7 +117,7 @@ export default function PortalSection() {
             className="bg-[#fffbeb] rounded-3xl  shadow-xl shadow-amber-500/5 border border-amber-100/80 flex flex-col sm:flex-row items-center gap-6 relative overflow-hidden group"
           >
             {/* Teacher Image */}
-            <div className="w-full sm:w-[220px] h-[220px] flex-shrink-0 relative overflow-hidden rounded-2xl bg-[#fffbeb]">
+            <div className="w-full sm:w-[220px] h-[285px] flex-shrink-0 relative overflow-hidden rounded-2xl bg-[#fffbeb]">
               <img
                 src={teacherImg}
                 alt="Teacher Portal"

@@ -39,14 +39,14 @@ export default function VirtualClassroomHero() {
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
+          transition={{ duration: 0.9, ease: "easeOut" }}
           className="max-w-xl lg:max-w-[620px]"
         >
           {/* Top Badge: A Better Virtual Classroom */}
           <motion.div
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.1, duration: 0.4 }}
+            transition={{ delay: 0.1, duration: 0.6 }}
             className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#e0edff] border border-blue-200/70 mb-6"
           >
             <MonitorPlay className="w-3.5 h-3.5 text-[#007bff]" />
@@ -83,7 +83,7 @@ export default function VirtualClassroomHero() {
                   <motion.path
                     initial={{ pathLength: 0 }}
                     animate={{ pathLength: 1 }}
-                    transition={{ delay: 0.45, duration: 0.7, ease: "easeOut" }}
+                    transition={{ delay: 0.45, duration: 0.9, ease: "easeOut" }}
                     d="M3 14C70 4 165 3 237 11"
                     stroke="currentColor"
                     strokeWidth="5"

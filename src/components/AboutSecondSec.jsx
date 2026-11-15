@@ -138,14 +138,14 @@ export default function MissionVisionSection() {
           </svg>
 
           {/* 4 Columns Grid */}
-          <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 items-center">
+          <div className="relative z-10 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 items-center">
             {topHighlights.map((item, index) => (
               <motion.div
                 key={item.id}
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.1 + index * 0.1, duration: 0.45 }}
+                transition={{ delay: 0.1 + index * 0.1, duration: 0.65 }}
                 whileHover={{ y: -5 }}
                 className={`group flex flex-col items-center text-center px-4 py-2 rounded-2xl cursor-pointer transition-all duration-300 ${
                   index < topHighlights.length - 1

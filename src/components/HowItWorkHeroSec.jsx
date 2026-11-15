@@ -22,14 +22,14 @@ export default function HowItWorkHeroSec() {
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, ease: "easeOut" }}
+          transition={{ duration: 0.9, ease: "easeOut" }}
           className="lg:col-span-5 max-w-xl lg:max-w-[540px]"
         >
           {/* Top Badge: FEATURES */}
           <motion.div
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.1, duration: 0.4 }}
+            transition={{ delay: 0.1, duration: 0.6 }}
             className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#e0edff] border border-blue-200/70 mb-6"
           >
             <Sparkles className="w-3.5 h-3.5 text-[#007bff]" />
@@ -68,7 +68,7 @@ export default function HowItWorkHeroSec() {
                     <motion.path
                       initial={{ pathLength: 0 }}
                       animate={{ pathLength: 1 }}
-                      transition={{ delay: 0.45, duration: 0.7, ease: "easeOut" }}
+                      transition={{ delay: 0.45, duration: 0.9, ease: "easeOut" }}
                       d="M3 14C50 4 120 3 157 11"
                       stroke="currentColor"
                       strokeWidth="5"
@@ -116,9 +116,9 @@ export default function HowItWorkHeroSec() {
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+            transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
             whileHover={{ scale: 1.02 }}
-            className="absolute -right-8 w-full max-w-[540px] lg:max-w-[600px] "
+            className="absolute sm:mt-0 mt-4 -right-8 w-2/3 max-w-[500px] lg:max-w-[600px] "
           >
             {/* Main Laptop/Plant Image */}
             <img

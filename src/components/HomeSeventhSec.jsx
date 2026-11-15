@@ -49,7 +49,7 @@ export default function TrustedStatsSection() {
           initial={{ opacity: 0, y: -15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.45 }}
+          transition={{ duration: 0.65 }}
           className="relative inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#eef5ff] border border-blue-200/70 shadow-sm mb-8"
         >
           {/* Top-Right Yellow 3-Line Sparkle Accent */}
@@ -94,10 +94,10 @@ export default function TrustedStatsSection() {
           style={{
             backgroundImage: `url(${trustedCapsuleBg})`,
           }}
-          className="relative w-full bg-repeat bg-cover bg-center px-6 py-8 sm:px-10 sm:py-10 "
+          className="relative w-full bg-repeat bg-cover bg-center px-3 py-6 sm:px-10 sm:py-10"
         >
           {/* 4 Columns Grid with Vertical Dividers */}
-          <div className="relative z-10 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-0 items-center">
+          <div className="relative z-10 grid grid-cols-2 lg:grid-cols-4 gap-2 sm:gap-6 lg:gap-0 items-center">
             {trustedItems.map((item, index) => {
               const Icon = item.icon;
               return (
@@ -106,9 +106,9 @@ export default function TrustedStatsSection() {
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: 0.15 + index * 0.1, duration: 0.4 }}
+                  transition={{ delay: 0.15 + index * 0.1, duration: 0.6 }}
                   whileHover={{ y: -5 }}
-                  className={`relative group flex flex-col items-center justify-center py-3 px-4 rounded-2xl cursor-pointer transition-all duration-300 ${
+                  className={`relative group flex min-w-0 flex-col items-center justify-center py-3 px-2 sm:px-4 rounded-2xl cursor-pointer transition-all duration-300 ${
                     index < trustedItems.length - 1
                       ? "lg:border-r lg:border-slate-200/80"
                       : ""
@@ -121,7 +121,7 @@ export default function TrustedStatsSection() {
                   <motion.div
                     whileHover={{ scale: 1.12, rotate: [0, -6, 6, 0] }}
                     transition={{ duration: 0.35 }}
-                    className="relative w-12 h-12 flex items-center justify-center mb-3"
+                    className="relative w-12 h-12 flex items-center justify-center mb-2 sm:mb-3"
                   >
                     {/* Soft Yellow Accent Circle behind Icon (matching screenshot) */}
                     <span className="absolute top-0.5 right-0.5 w-6 h-6 rounded-full bg-[#fef08a] group-hover:scale-125 transition-transform duration-300" />
@@ -137,13 +137,13 @@ export default function TrustedStatsSection() {
                   </motion.div>
 
                   {/* Item Label (+ Yellow Arrow Badge for Watch Demo) */}
-                  <div className="flex items-center gap-1.5">
-                    <span className="text-sm sm:text-[15px] font-bold text-[#01287B] group-hover:text-[#007bff] transition-colors">
+                  <div className="flex max-w-full items-center justify-center gap-1.5">
+                    <span className={`text-xs sm:text-[15px] leading-tight text-center font-bold text-[#01287B] group-hover:text-[#007bff] transition-colors ${item.hasArrow ? "whitespace-nowrap" : ""}`}>
                       {item.label}
                     </span>
 
                     {item.hasArrow && (
-                      <span className="w-4 h-4 rounded-full bg-[#ffbc00] text-white flex items-center justify-center shadow-xs group-hover:translate-x-1 transition-transform duration-200">
+                      <span className="w-4 h-4 shrink-0 rounded-full bg-[#ffbc00] text-white flex items-center justify-center shadow-xs group-hover:translate-x-1 transition-transform duration-200">
                         <ChevronRight className="w-3 h-3 stroke-[3]" />
                       </span>
                     )}

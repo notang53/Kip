@@ -5,8 +5,11 @@ import { ArrowRight, Play, User, Video, BookOpen } from "lucide-react";
 import heroBg from "../assets/images/bg-img-all.png";
 // Right side wali main girl/laptop image import
 import heroGirlImg from "../assets/images/about-right.png";
+import { useAuthModal } from "./auth/AuthModalContext";
 
 export default function AboutHero() {
+  const openAuthModal = useAuthModal();
+
   return (
     <section
       id="about"
@@ -105,6 +108,8 @@ export default function AboutHero() {
           <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4">
             {/* Primary Button: Create an Account */}
             <motion.button
+              type="button"
+              onClick={() => openAuthModal("signup")}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               className="relative overflow-hidden group inline-flex items-center justify-center gap-2.5 bg-[#007bff] text-white font-semibold text-sm sm:text-[15px] px-6 py-3 rounded-xl shadow-lg shadow-blue-500/25 cursor-pointer"
@@ -136,12 +141,12 @@ export default function AboutHero() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
             whileHover={{ scale: 1.02 }}
-            className="relative w-full max-w-[520px] lg:max-w-[580px]"
+            className="relative w-full max-w-[520px] lg:max-w-[580px] sm:-right-10"
           >
             <img
               src={heroGirlImg}
               alt="About KIPClassin online learning"
-              className="w-full h-auto object-contain drop-shadow-xl"
+              className="w-full h-auto object-contain drop-shadow-xl "
             />
           </motion.div>
 

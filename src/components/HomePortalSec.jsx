@@ -1,12 +1,15 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Users, GraduationCap, Presentation, User, ArrowRight } from "lucide-react";
+import { Users, GraduationCap, Presentation, User } from "lucide-react";
 
 // Yahan apni images import karein
 import studentImg from "../assets/images/portal-1.png";
 import teacherImg from "../assets/images/portal-2.png";
+import { useAuthModal } from "./auth/AuthModalContext";
 
 export default function PortalSection() {
+  const openAuthModal = useAuthModal();
+
   return (
     <section className="relative w-full py-20 px-4 sm:px-6 lg:px-10 bg-gradient-to-b from-white via-[#f7faff] to-[#edf5ff] overflow-hidden">
       
@@ -50,7 +53,7 @@ export default function PortalSection() {
         </div>
 
         {/* Cards Grid (Student & Teacher) */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full max-w-5xl">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 w-full">
           
           {/* ================= STUDENT CARD ================= */}
           <motion.div
@@ -87,6 +90,8 @@ export default function PortalSection() {
 
               {/* Student Login Button */}
               <motion.button
+                type="button"
+                onClick={() => openAuthModal("login")}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.97 }}
                 className="mt-5 relative overflow-hidden group/btn w-full inline-flex items-center justify-center gap-2 bg-[#007bff] text-white font-semibold text-sm py-3 px-5 rounded-xl shadow-md shadow-blue-500/20 cursor-pointer"
@@ -99,9 +104,9 @@ export default function PortalSection() {
               {/* Create Account Link */}
               <p className="mt-3 text-xs text-slate-500 text-center sm:text-left">
                 New student?{" "}
-                <a href="#register" className="text-[#007bff] font-bold hover:underline">
+                <button type="button" onClick={() => openAuthModal("signup")} className="font-bold text-[#007bff] hover:underline">
                   Create an account
-                </a>
+                </button>
               </p>
             </div>
           </motion.div>
@@ -114,7 +119,7 @@ export default function PortalSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
             whileHover={{ y: -8, transition: { duration: 0.2 } }}
-            className="bg-[#fffbeb] rounded-3xl  shadow-xl shadow-amber-500/5 border border-amber-100/80 flex flex-col sm:flex-row items-center gap-6 relative overflow-hidden group"
+            className="bg-[#fffbeb] rounded-3xl shadow-xl shadow-amber-500/5 border border-amber-100/80 flex flex-col sm:flex-row items-center gap-6 relative overflow-hidden group"
           >
             {/* Teacher Image */}
             <div className="w-full sm:w-[220px] h-[285px] flex-shrink-0 relative overflow-hidden rounded-2xl bg-[#fffbeb]">
@@ -142,6 +147,8 @@ export default function PortalSection() {
 
               {/* Teacher Login Button */}
               <motion.button
+                type="button"
+                onClick={() => openAuthModal("login")}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.97 }}
                 className="mt-5 relative overflow-hidden group/btn w-full inline-flex items-center justify-center gap-2 bg-[#ffbc00] hover:bg-[#ffb000] text-slate-900 font-bold text-sm py-3 px-5 rounded-xl shadow-md shadow-amber-500/20 cursor-pointer"
@@ -154,9 +161,9 @@ export default function PortalSection() {
               {/* Create Account Link */}
               <p className="mt-3 text-xs text-slate-500 text-center sm:text-left">
                 New teacher?{" "}
-                <a href="#register" className="text-[#007bff] font-bold hover:underline">
+                <button type="button" onClick={() => openAuthModal("signup")} className="font-bold text-[#007bff] hover:underline">
                   Create an account
-                </a>
+                </button>
               </p>
             </div>
           </motion.div>

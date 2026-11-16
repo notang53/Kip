@@ -94,7 +94,7 @@ export default function FeaturesSection() {
       {/* Subtle Background Ambient Glow */}
       {/* <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-blue-100/35 rounded-full blur-3xl pointer-events-none -z-10" /> */}
 
-      <div className="max-w-4xl mx-auto flex flex-col items-center">
+      <div className="max-w-[1400px] mx-auto flex flex-col items-center">
         {/* Top Pill Badge: WHAT YOU CAN DO */}
         <motion.div
           initial={{ opacity: 0, y: -15 }}

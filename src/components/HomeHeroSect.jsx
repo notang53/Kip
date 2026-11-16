@@ -5,10 +5,12 @@ import { ArrowRight, Play, Sparkles, Video, BookOpen } from "lucide-react";
 import heroBg from "../assets/images/bg-img-all.png";
 // Right side wali main girl/laptop image apne folder se yahan import karein:
 import heroGirlImg from "../assets/images/hero-right.png";
+import { useAuthModal } from "./auth/AuthModalContext";
 
 export default function HomeHeroSect() {
   const [typedCount, setTypedCount] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
+  const openAuthModal = useAuthModal();
 
   const rotatingText = "Grow Together.";
 
@@ -135,6 +137,8 @@ export default function HomeHeroSect() {
           <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 sm:gap-4">
             {/* Primary Button: Create an Account */}
             <motion.button
+              type="button"
+              onClick={() => openAuthModal("signup")}
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               className="relative overflow-hidden group inline-flex items-center justify-center gap-2.5 bg-[#007bff] text-white font-semibold text-sm sm:text-[15px] px-6 py-3 rounded-xl shadow-lg shadow-blue-500/25 cursor-pointer"

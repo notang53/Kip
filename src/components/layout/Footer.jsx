@@ -15,9 +15,11 @@ import { FaFacebookF, FaInstagram, FaXTwitter, FaLinkedinIn } from "react-icons/
 import footerWaveBg from "../../assets/images/Footer-bg.png";
 // Brand Logo yahan import karein
 import Logo from "../../assets/images/f-logo.png";
+import { useAuthModal } from "../auth/AuthModalContext";
 
 export default function Footer() {
   const [email, setEmail] = useState("");
+  const openAuthModal = useAuthModal();
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
@@ -123,22 +125,33 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               {[
-                { label: "Student Login", icon: GraduationCap, href: "#student-login" },
-                { label: "Teacher Login", icon: UserCheck, href: "#teacher-login" },
-                { label: "Create an Account", icon: UserPlus, href: "#register" },
+                { label: "Student Login", icon: GraduationCap, mode: "login" },
+                { label: "Teacher Login", icon: UserCheck, mode: "login" },
+                { label: "Create an Account", icon: UserPlus, mode: "signup" },
                 { label: "Help & Support", icon: HelpCircle, href: "/contact" },
               ].map((link, idx) => {
                 const Icon = link.icon;
                 return (
                   <li key={idx}>
-                    <Link
-                      to={link.href}
-                      onClick={link.href.startsWith("/") ? scrollToTop : undefined}
-                      className="group flex items-center gap-2.5 text-slate-300 hover:text-[#ffbc00] text-sm font-medium transition-all duration-300 ease-in-out hover:translate-x-2"
-                    >
-                      <Icon className="w-4 h-4 text-[#ffbc00] group-hover:scale-110 transition-transform" />
-                      <span>{link.label}</span>
-                    </Link>
+                    {link.href ? (
+                      <Link
+                        to={link.href}
+                        onClick={scrollToTop}
+                        className="group flex items-center gap-2.5 text-slate-300 hover:text-[#ffbc00] text-sm font-medium transition-all duration-300 ease-in-out hover:translate-x-2"
+                      >
+                        <Icon className="w-4 h-4 text-[#ffbc00] group-hover:scale-110 transition-transform" />
+                        <span>{link.label}</span>
+                      </Link>
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={() => openAuthModal(link.mode)}
+                        className="group flex items-center gap-2.5 text-left text-sm font-medium text-slate-300 transition-all duration-300 ease-in-out hover:translate-x-2 hover:text-[#ffbc00]"
+                      >
+                        <Icon className="h-4 w-4 text-[#ffbc00] transition-transform group-hover:scale-110" />
+                        <span>{link.label}</span>
+                      </button>
+                    )}
                   </li>
                 );
               })}

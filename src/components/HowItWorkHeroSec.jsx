@@ -118,7 +118,7 @@ export default function HowItWorkHeroSec() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
             whileHover={{ scale: 1.02 }}
-            className="absolute sm:mt-0 mt-4 -right-8 w-2/3 max-w-[500px] lg:max-w-[600px] "
+            className="absolute sm:mt-0 mt-4 sm:-right-8 w-2/3 max-w-[500px] lg:max-w-[700px] "
           >
             {/* Main Laptop/Plant Image */}
             <img

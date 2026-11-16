@@ -39,7 +39,7 @@ export default function HowItWorksSection() {
 
       <div className="max-w-[1400px] py-20 mx-auto relative px-4 sm:px-6 lg:px-10 flex flex-col items-center">
         
-        <img src={howItWorksBg} alt="" className="absolute top-0 left-0 w-full h-[100px] bg-no-repeat bg-cover bg-center pointer-events-none"
+        <img src={howItWorksBg} alt="" className="absolute top-0 left-0 h-[100px] bg-no-repeat bg-cover bg-center pointer-events-none"
  />
         {/* Top Badge: HOW IT WORKS */}
         <motion.div
@@ -101,7 +101,7 @@ export default function HowItWorksSection() {
         </div>
 
         {/* 3 Cards Grid Container */}
-        <div className="grid grid-cols-1 md:grid-cols-3 max-w-4xl gap-4 sm:gap-5 lg:gap-8 w-full relative">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 lg:gap-8 w-full relative">
           
           {steps.map((step, index) => (
             <motion.div

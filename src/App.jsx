@@ -11,6 +11,7 @@ import About from './pages/About'
 import Feature from './pages/Feature'
 import HowItWork from './pages/HowItWork'
 import Contact from './pages/contact'
+import { AuthModalProvider } from './components/auth/AuthModalContext'
 
 const App = () => {
 
@@ -26,6 +27,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
+      <AuthModalProvider>
 
       {loading && <Loader />}
 
@@ -45,6 +47,7 @@ const App = () => {
         </>
       )}
 
+      </AuthModalProvider>
     </BrowserRouter>
   )
 }

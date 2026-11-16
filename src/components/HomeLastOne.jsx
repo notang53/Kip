@@ -14,7 +14,7 @@ export default function LastOne() {
       style={{
         backgroundImage: `url(${classroomBg})`,
       }}
-      className="relative w-full min-h-screen mt-2 bg-no-repeat bg-cover bg-left sm:bg-right-bottom lg:bg-center flex items-center overflow-hidden bg-[#f5f9ff] py-20"
+      className="relative w-full min-h-screen bg-no-repeat bg-cover bg-left sm:bg-right-bottom lg:bg-center flex items-center overflow-hidden bg-[#f5f9ff] py-20"
     >
       {/* Main Content Container */}
       <div className="relative z-10 max-w-[1400px] mx-auto w-full px-4 sm:px-6 lg:px-10">

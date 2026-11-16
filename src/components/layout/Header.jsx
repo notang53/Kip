@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { User, Menu, X } from "lucide-react";
 import Logo from "../../assets/images/logo-1.png";
+import { useAuthModal } from "../auth/AuthModalContext";
 
 const navLinks = [
   { id: "home", label: "Home", href: "/" },
@@ -15,6 +16,7 @@ const navLinks = [
 export default function Navbar() {
   const [hoveredTab, setHoveredTab] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const openAuthModal = useAuthModal();
 
   // Current URL path get karne ke liye
   const location = useLocation();
@@ -87,19 +89,17 @@ export default function Navbar() {
         {/* 3. Right: Desktop Login Button + Mobile/Tablet Toggle */}
         <div className="flex items-center gap-3 flex-shrink-0">
           {/* Login CTA Button (Hidden on mobile/tablet, visible on lg+) */}
-          <Link to="/login" className="hidden lg:block">
-            <motion.button
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.96 }}
-              className="relative overflow-hidden group flex items-center gap-2 bg-[#007bff] text-white font-semibold text-[15px] px-6 py-2.5 rounded-xl shadow-md shadow-blue-500/20 cursor-pointer"
-            >
-              {/* Bottom-to-top hover fill layer */}
-              <span className="absolute inset-0 bg-[#0056d2] translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-
-              <User className="w-4 h-4 relative z-10 stroke-[2.3]" />
-              <span className="relative z-10">Login</span>
-            </motion.button>
-          </Link>
+          <motion.button
+            type="button"
+            onClick={() => openAuthModal("login")}
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.96 }}
+            className="relative hidden overflow-hidden group items-center gap-2 rounded-xl bg-[#007bff] px-6 py-2.5 text-[15px] font-semibold text-white shadow-md shadow-blue-500/20 cursor-pointer lg:flex"
+          >
+            <span className="absolute inset-0 translate-y-full bg-[#0056d2] transition-transform duration-300 ease-out group-hover:translate-y-0" />
+            <User className="relative z-10 h-4 w-4 stroke-[2.3]" />
+            <span className="relative z-10">Login</span>
+          </motion.button>
 
           {/* Hamburger Menu Toggle Button (Visible on sm & md, hidden on lg+) */}
           <motion.button
@@ -162,15 +162,18 @@ export default function Navbar() {
                 transition={{ delay: navLinks.length * 0.05 }}
                 className="pt-2 mt-1 border-t border-slate-100"
               >
-                <Link to="/login" onClick={() => setMobileMenuOpen(false)}>
-                  <motion.button
-                    whileTap={{ scale: 0.96 }}
-                    className="w-full flex items-center justify-center gap-2 bg-[#007bff] text-white font-semibold py-3 rounded-xl shadow-md shadow-blue-500/20 cursor-pointer"
-                  >
-                    <User className="w-4 h-4 stroke-[2.3]" />
-                    <span>Login</span>
-                  </motion.button>
-                </Link>
+                <motion.button
+                  type="button"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    openAuthModal("login");
+                  }}
+                  whileTap={{ scale: 0.96 }}
+                  className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#007bff] py-3 font-semibold text-white shadow-md shadow-blue-500/20 cursor-pointer"
+                >
+                  <User className="h-4 w-4 stroke-[2.3]" />
+                  <span>Login</span>
+                </motion.button>
               </motion.div>
             </div>
           </motion.div>

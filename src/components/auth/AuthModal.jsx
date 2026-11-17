@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { ArrowRight, LockKeyhole, Mail, UserRound, X } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function AuthModal({ mode, onModeChange, onClose }) {
+  const navigate = useNavigate();
   const [notice, setNotice] = useState("");
   const isOpen = mode !== null;
   const isSignUp = mode === "signup";
@@ -26,7 +28,14 @@ export default function AuthModal({ mode, onModeChange, onClose }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setNotice(mode);
+    if (isSignUp) {
+      setNotice(mode);
+      return;
+    }
+
+    const username = event.currentTarget.elements.username.value.trim();
+    navigate("/StudentDashboard", { state: { username } });
+    onClose();
   };
 
   return (
@@ -103,16 +112,20 @@ export default function AuthModal({ mode, onModeChange, onClose }) {
 
               <label className="block">
                 <span className="mb-1.5 block text-sm font-semibold text-slate-700">
-                  Email address
+                  {isSignUp ? "Email address" : "Username"}
                 </span>
                 <span className="relative block">
-                  <Mail className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+                  {isSignUp ? (
+                    <Mail className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+                  ) : (
+                    <UserRound className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
+                  )}
                   <input
-                    name="email"
-                    type="email"
-                    autoComplete="email"
+                    name={isSignUp ? "email" : "username"}
+                    type={isSignUp ? "email" : "text"}
+                    autoComplete={isSignUp ? "email" : "username"}
                     required
-                    placeholder="you@example.com"
+                    placeholder={isSignUp ? "you@example.com" : "Your username"}
                     className="w-full rounded-xl border border-slate-200 bg-white py-3 pl-10 pr-4 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-[#007bff] focus:ring-4 focus:ring-blue-100"
                   />
                 </span>

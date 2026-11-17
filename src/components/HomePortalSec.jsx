@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Users, GraduationCap, Presentation, User } from "lucide-react";
-
+import { Link } from "react-router-dom";
 // Yahan apni images import karein
 import studentImg from "../assets/images/portal-1.png";
 import teacherImg from "../assets/images/portal-2.png";
@@ -89,17 +89,20 @@ export default function PortalSection() {
               </p>
 
               {/* Student Login Button */}
-              <motion.button
-                type="button"
-                onClick={() => openAuthModal("login")}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.97 }}
-                className="mt-5 relative overflow-hidden group/btn w-full inline-flex items-center justify-center gap-2 bg-[#007bff] text-white font-semibold text-sm py-3 px-5 rounded-xl shadow-md shadow-blue-500/20 cursor-pointer"
-              >
+              <Link to="/StudentDashboard">
+                <motion.button
+                  type="button"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.97 }}
+                  className="mt-5 relative overflow-hidden group/btn w-full inline-flex items-center justify-center gap-2 bg-[#007bff] text-white font-semibold text-sm py-3 px-5 rounded-xl shadow-md shadow-blue-500/20 cursor-pointer"
+                >
+              
                 <span className="absolute inset-0 bg-[#0056d2] translate-y-full group-hover/btn:translate-y-0 transition-transform duration-300 ease-out" />
                 <User className="w-4 h-4 relative z-10" />
                 <span className="relative z-10">Student Login</span>
+
               </motion.button>
+              </Link>
 
               {/* Create Account Link */}
               <p className="mt-3 text-xs text-slate-500 text-center sm:text-left">

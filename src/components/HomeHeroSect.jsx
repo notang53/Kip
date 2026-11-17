@@ -171,7 +171,7 @@ export default function HomeHeroSect() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
             whileHover={{ scale: 1.02 }}
-            className="relative w-full max-w-[520px] lg:max-w-[580px]"
+            className="relative w-full max-w-[520px] lg:max-w-[650px]"
           >
             <img
               src={heroGirlImg}
